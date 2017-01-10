@@ -19,6 +19,8 @@ pgRestify.initialize({
 
   // now that the query to get table metadata is done,
   // start the server
-  server.listen(8080);
+  var port = process.env.PORT || 8080;
+  console.log(`REST server listening on ${port}`);
+  server.listen(port);
 
 });
