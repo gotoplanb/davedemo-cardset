@@ -1,0 +1,15 @@
+{
+  "name": "davedemo-cardset",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:gotoplanb/davedemo-cardset.git",
+  "author": "Dave Stanton <davestanton.us@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "pg-restify": "^0.3.1",
+    "restify": "^4.3.0"
+  },
+  "scripts": {
+    "start": "node ./index.js"
+  }
+}
