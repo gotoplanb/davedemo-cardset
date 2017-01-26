@@ -1,8 +1,9 @@
 FORMAT: 1A
+HOST: https://davedemo-cardset.herokuapp.com/api/generic
 
 # CardSet
 
-CardSet is a RESTful API to manage cards and cardsets.
+CardSet is a RESTful API to manage cards and card sets.
 
 ## Optional parameters
 
@@ -19,7 +20,7 @@ All collection endpoints can take these optional parameters for GET requests:
     + id : 1 (number) - PostgreSQL serial type. Primary key.
     + name : queen (string)
     + type : heart (string)
-    + image : queen-of-hearts.svg (string) - The filename for the image. Not a blob of the image.
+    + image : `queen-of-hearts.svg` (string) - The filename for the image. Not a blob of the image.
 
 ### List all cards [GET]
 
@@ -32,10 +33,9 @@ All collection endpoints can take these optional parameters for GET requests:
     + Attributes (object)
         + name : queen (string)
         + type : heart (string)
-        + image : queen-of-hearts.svg (string, optional)
+        + image : `queen-of-hearts.svg` (string, optional)
 
 + Response 201 (application/json)
-  + Attributes (card)
 
 ## card resource [/card/{id}]
 
@@ -53,14 +53,13 @@ All collection endpoints can take these optional parameters for GET requests:
     + Attributes (object)
         + name : queen (string)
         + type : heart (string)
-        + image : queen-of-hearts.svg (string, optional)
+        + image : `queen-of-hearts.svg` (string, optional)
 
 + Response 200 (application/json)
-  + Attributes (card)
 
 ### Delete a card [DELETE]
 
-+ Response 204
++ Response 200
 
 ## card-set [/card-set]
 
@@ -80,7 +79,6 @@ All collection endpoints can take these optional parameters for GET requests:
         + name : poker (string)
 
 + Response 201 (application/json)
-  + Attributes (card-set)
 
 ## card-set resource [/card-set/{id}]
 
@@ -92,18 +90,17 @@ All collection endpoints can take these optional parameters for GET requests:
 + Response 200 (application/json)
   + Attributes (card-set)
 
-### Update details of a card [PUT]
+### Update details of a card set [PUT]
 
 + Request (application/json)
     + Attributes (object)
         + name : poker (string)
 
 + Response 200 (application/json)
-  + Attributes (card-set)
 
-### Delete a card [DELETE]
+### Delete a card set [DELETE]
 
-+ Response 204
++ Response 200
 
 ## card-set-card [/card-set-card]
 
@@ -125,7 +122,6 @@ All collection endpoints can take these optional parameters for GET requests:
         + cardSetId : 1 (number)
 
 + Response 201 (application/json)
-  + Attributes (card-set-card)
 
 ## card card set resource [/card-set-card/{id}]
 
@@ -134,4 +130,4 @@ All collection endpoints can take these optional parameters for GET requests:
 
 ### Delete a card set card [DELETE]
 
-+ Response 204
++ Response 200
