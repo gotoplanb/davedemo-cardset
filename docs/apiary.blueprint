@@ -1,0 +1,137 @@
+FORMAT: 1A
+
+# CardSet
+
+CardSet is a RESTful API to manage cards and cardsets.
+
+## Optional parameters
+
+All collection endpoints can take these optional parameters for GET requests:
+
+  + orderBy (string, `id`, optional) ... The field to order the results by.
+  + orderByDesc (boolean, `false`, optional) ... Whether or not the results should be ordered in descending order.
+  + page (number, `1`, optional) ... The page number of results to display. Starts at page 1.
+  + pageSize (number, `25`, optional) ... The number of results to return in a single request.
+
+## card [/card]
+
++ Attributes
+    + id : 1 (number) - PostgreSQL serial type. Primary key.
+    + name : queen (string)
+    + type : heart (string)
+    + image : queen-of-hearts.svg (string) - The filename for the image. Not a blob of the image.
+
+### List all cards [GET]
+
++ Response 200 (application/json)
+  + Attributes (array[card,card,card])
+
+### Create a new card [POST]
+
++ Request (application/json)
+    + Attributes (object)
+        + name : queen (string)
+        + type : heart (string)
+        + image : queen-of-hearts.svg (string, optional)
+
++ Response 201 (application/json)
+  + Attributes (card)
+
+## card resource [/card/{id}]
+
++ Parameters
+    + id (number, `1`) ... Parameter comment.
+
+### Get details of a card [GET]
+
++ Response 200 (application/json)
+  + Attributes (card)
+
+### Update details of a card [PUT]
+
++ Request (application/json)
+    + Attributes (object)
+        + name : queen (string)
+        + type : heart (string)
+        + image : queen-of-hearts.svg (string, optional)
+
++ Response 200 (application/json)
+  + Attributes (card)
+
+### Delete a card [DELETE]
+
++ Response 204
+
+## card-set [/card-set]
+
++ Attributes
+    + id : 1 (number) - PostgreSQL serial type. Primary key.
+    + name : poker (string)
+
+### List all card sets [GET]
+
++ Response 200 (application/json)
+  + Attributes (array[card-set,card-set,card-set])
+
+### Create a new card set [POST]
+
++ Request (application/json)
+    + Attributes (object)
+        + name : poker (string)
+
++ Response 201 (application/json)
+  + Attributes (card-set)
+
+## card-set resource [/card-set/{id}]
+
++ Parameters
+    + id (number, `1`)
+
+### Get details of a card set [GET]
+
++ Response 200 (application/json)
+  + Attributes (card-set)
+
+### Update details of a card [PUT]
+
++ Request (application/json)
+    + Attributes (object)
+        + name : poker (string)
+
++ Response 200 (application/json)
+  + Attributes (card-set)
+
+### Delete a card [DELETE]
+
++ Response 204
+
+## card-set-card [/card-set-card]
+
++ Attributes
+    + id : 1 (number) - PostgreSQL serial type. Primary key.
+    + cardId : 1 (number) - Foreign key to the card table.
+    + cardSetId : 1 (number) - Foreign key to the card_set table.
+
+### List all card set cards [GET]
+
++ Response 200 (application/json)
+  + Attributes (array[card-set-card,card-set-card,card-set-card])
+
+### Create a new card set card [POST]
+
++ Request (application/json)
+    + Attributes (object)
+        + cardId : 1 (number)
+        + cardSetId : 1 (number)
+
++ Response 201 (application/json)
+  + Attributes (card-set-card)
+
+## card card set resource [/card-set-card/{id}]
+
++ Parameters
+    + id (number, `1`) ... Parameter comment.
+
+### Delete a card set card [DELETE]
+
++ Response 204
